@@ -5,11 +5,15 @@ const TareaSchema = new  mongoose.Schema({
         type:String,
         required:true
     }, 
+    descripcion:{
+        type:String,
+        required:true
+    },
     estado:{
-        type:Boolean,
+        type:String,
         required:true
     }
 })
 
-const tarea = mongoose.model('tarea',TareaSchema)
+const tarea = mongoose.model('tareas',TareaSchema)
 module.exports = tarea;

@@ -11,8 +11,8 @@ const obtenerTareas = async (req, res)=> {
 
 const crearTarea = async (req,res) =>{
     try{
-        const {titulo, estado} = req.body;
-        const nueva = new ListaTareas ({titulo, estado});
+        const {titulo, descripcion, estado} = req.body;
+        const nueva = new ListaTareas ({titulo, descripcion, estado});
         await nueva.save();
         res.json({Mensaje: nueva})
     }catch(e){
@@ -23,11 +23,11 @@ const crearTarea = async (req,res) =>{
 const actualizarTarea = async (req,res) =>{
     try{
         let {id} = req.params;
-        let {titulo, estado} = req.body
-        if(!titulo || !estado){
+        let {titulo, descripcion, estado} = req.body
+        if(!titulo || !descripcion || !estado || !id){
             return res.json({Mensaje: "Es necesario llenar todos los campos"})
         }else{
-            let actualizacion = await ListaTareas.findByIdAndUpdate(id, {titulo,estado})
+            let actualizacion = await ListaTareas.findByIdAndUpdate(id, {titulo, descripcion, estado})
             return res.json({Mensaje: "Tarea actualizada exitosamente", actualizacion})
         }
     }catch(e){

@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const listaTareas = require('./routes/listaTareasRoute');
 require ('dotenv').config();
-const PORT = process.env.puerto
+const PORT = process.env.PORT
 const connexionDB = require("./config/db");
 connexionDB();
 app.use(express.json());

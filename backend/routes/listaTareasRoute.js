@@ -4,7 +4,7 @@ const listaTareas = require('../controllers/listaTareasController')
 
 router.get('/tarea', listaTareas.obtenerTareas)
 router.post('/tarea', listaTareas.crearTarea)
-router.put('/tarea', listaTareas.actualizarTarea)
-router.delete('/tarea', listaTareas.eliminarTarea)
+router.put('/tarea/:id', listaTareas.actualizarTarea)
+router.delete('/tarea/:id', listaTareas.eliminarTarea)
 
 module.exports = router;
